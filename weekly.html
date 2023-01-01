@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-weight: 200;
+    }
+    .chart {
+      text-align: center;
+    }
+    .section {
+      margin: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+    }
+    .section .info {
+      width: 10%
+    }
+    .week {
+      display: flex;
+    }
+    .day:nth-child(7) {
+      margin-right: 30px;
+    }
+    .day {
+      width: 20px;
+      height: 20px;
+      line-height:20px;
+      border: 1px solid black;
+      margin: 3px;
+      color: #eee;
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript">
+    // 13 sections. Each section contains 4 rows of 7 boxes each.
+    // each box represents a day of the week. The first box is Sunday, the last box is Saturday.
+    function makeChart() {
+      var chart = document.createElement('div');
+      chart.classList.add('chart')
+      const year = new Date().getFullYear();
+      chart.innerHTML = '<h1>' + year + '</h1>';
+      var sections = 13;
+      var rows = 2;
+      var cols = 14;
+      var sectionHeight = 100 / sections;
+      var rowHeight = sectionHeight / rows;
+      var colWidth = 50 / cols;
+      const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+
+      for (var i = 0; i < sections; i++) {
+        var section = document.createElement('div');
+        section.classList.add('section');
+        var info = document.createElement('div');
+        info.classList.add('info')
+        var weeks = document.createElement('div');
+        weeks.classList.add('weeks')
+        section.appendChild(info);
+        section.appendChild(weeks);
+        for (var j = 0; j < rows; j++) {
+          var week = document.createElement('div');
+          week.classList.add('week')
+          for (var k = 0; k < cols; k++) {
+            var day = document.createElement('div');
+            day.innerHTML = days[k % 7];
+            day.classList.add('day');
+            week.appendChild(day);
+          }
+          weeks.appendChild(week);
+        }
+        chart.appendChild(section);     
+      }
+
+      return chart;
+    }
+    // on page load, add the svg to the body
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('body').appendChild(makeChart());
+    });
+  </script>
+  <body>
+
+  </body>
+</html>
