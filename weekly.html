@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>28-day habit template</title>
+    <meta name="description" content="A printable template to track 13 28-day experiments through the year"/>
+  </head>
   <style>
     body {
       font-family: sans-serif;
       font-weight: 200;
+    }
+   @media print {
+     .noprint {
+       height: 0;
+       display: none;
+       visibility: hidden;
+     }
     }
     .chart {
       text-align: center;
@@ -69,7 +80,7 @@
           }
           weeks.appendChild(week);
         }
-        chart.appendChild(section);     
+        chart.appendChild(section);
       }
 
       return chart;
@@ -80,6 +91,24 @@
     });
   </script>
   <body>
-
+    <div class="noprint" style="display: flex; justify-content: center">
+      <div style="max-width: 600px">
+        <p>
+          You can try experimenting with a habit for 4 weeks (28 days).
+        </p>
+        <ul>
+          <li>Print out this paper (these instructions won't show up on your printout)</li>
+          <li>Write down the habit to the right of each 4 week block.</li>
+          <li>Color in a day to track whether you completed it or not</li>
+        </ul>
+        <p> These could be actual experiments that you want to try and not commit to,
+          or they could be habits that you intend to turn into a long-term thing. Either way,
+          doing it for 4 weeks is a lot less intimidating than committing to it for a whole year.
+        </p>
+        <p>After 13 of these experiments you would have completed a whole year with a lot more information
+          about yourself. <b>Good luck!</b>
+        </p>
+      </div>
+    </div>
   </body>
 </html>
